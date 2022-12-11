@@ -16,7 +16,6 @@ def day1a(filepath):
 
 
 def day1b(filepath):
-    max_sum = 0
     elf_list = []
     with open(filepath) as f:
         sum_energy = 0
