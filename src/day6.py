@@ -38,4 +38,5 @@ def day6b(filepath):
 
 #print(day6a('day6_veronica.txt'))
 #print(day6a('henna_day6.txt'))
-print(day6b('henna_day6.txt'))
+#print(day6b('henna_day6.txt'))
+print(day6b('day6_veronica.txt'))

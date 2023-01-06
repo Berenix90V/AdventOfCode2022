@@ -60,8 +60,8 @@ class Filesystem:
         self.root.get_dir_less_than_size(size, dir_list)
         return dir_list
 
+fs = Filesystem()
 def day7a(filepath):
-    fs = Filesystem()
     cursor_position = None
     with open(filepath) as f:
         for line in f:
@@ -99,4 +99,18 @@ def day7a(filepath):
     list_dir = fs.get_dir_less_than_size(100000)
     return sum(list_dir)
 
+def day7b(filepath):
+    diskspace = 70000000
+    update_space = 30000000
+    list_dir = fs.get_dir_less_than_size(diskspace)
+    occupied_space = fs.root.size
+    free_space = diskspace-occupied_space
+    space_to_be_freed = update_space-free_space
+    suitable_dirs = [x for x in list_dir if x>= space_to_be_freed]
+    print("occupied: ", occupied_space, "free space", free_space, "to be freed", space_to_be_freed)
+    suitable_dirs.sort()
+    print(suitable_dirs)
+    return suitable_dirs[0]
+
 print(day7a('day7_veronica.txt'))  
+print(day7b('day7_veronica.txt'))
